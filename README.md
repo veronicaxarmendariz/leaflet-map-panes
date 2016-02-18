@@ -2,7 +2,7 @@
 Leaflet JS custom map panes tutorial with Connecticut town boundaries
 
 ## Demo
-https://jackdougherty.github.io/leaflet-map-panes/
+http://jackdougherty.github.io/leaflet-map-panes/
 
 ## Requires
 - Leaflet 1.x
