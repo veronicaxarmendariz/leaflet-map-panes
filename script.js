@@ -4,7 +4,7 @@
 
 // set up the map center and zoom level
 var map = L.map('map', {
-  center: [41.5, -72.7], // [41.5, -72.7] for Connecticut; [41.76, -72.67] for Hartford county or city
+  center: [41.7, -72.7], // [41.5, -72.7] for Connecticut; [41.76, -72.67] for Hartford county or city
   zoom: 10, // zoom 9 for Connecticut; 10 for Hartford county, 12 for Hartford city
   zoomControl: false // add later to reposition
 });
@@ -36,26 +36,28 @@ var lightNoLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 }).addTo(map);
 
+// the ArcGIS layer looks best so far
+var arcGISLabels = L.esri.tiledMapLayer({
+    url: "http://tiles.arcgis.com/tiles/5rblLCKLgS4Td60j/arcgis/rest/services/ConnecticutTownLabels/MapServer",
+    pane: 'labels'
+}).addTo(map);
+controlLayers.addBaseLayer(arcGISLabels, 'ArcGIS Online Labels');
+
 // see use of "pane" in this only_labels layer
 var lightOnlyLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
     pane: 'labels'
-}).addTo(map);
-controlLayers.addOverlay(lightOnlyLabels, 'CartoDB Labels');
+});
+controlLayers.addBaseLayer(lightOnlyLabels, 'CartoDB Labels');
 
 // use pane in this mapbox labels layer
 var mapboxLabels = L.tileLayer('https://{s}.tiles.mapbox.com/v3/gmapsmania.f8637bc8/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
     pane: 'labels'
-}).addTo(map);
-controlLayers.addOverlay(mapboxLabels, 'GMapsMania Mapbox Labels');
+});
+controlLayers.addBaseLayer(mapboxLabels, 'GMapsMania Mapbox Labels'); // originally: addOverlay
 
-// TESTING
-var arcGISLabels = L.esri.tiledMapLayer({
-    url: "http://tiles.arcgis.com/tiles/5rblLCKLgS4Td60j/arcgis/rest/services/ConnecticutTownLabels/MapServer",
-    pane: 'labels'
-}).addTo(map);
-controlLayers.addOverlay(arcGISLabels, 'ArcGIS Online Labels');
+
 
 
 
