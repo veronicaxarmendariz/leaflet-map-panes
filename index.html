@@ -3,14 +3,20 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Leaflet map panes</title>
-      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v1.0.0-beta.2/leaflet.css" />
+    <!-- Current Leaflet is beta. Check for updates at http://leafletjs.com/download.html -->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v1.0.0-beta.2/leaflet.css" />
+    <!-- remove ZoomLabel (also in script.js) after map contruction -->
+    <link rel="stylesheet" href="http://jackdougherty.github.io/leaflet.zoomlabel/L.Control.ZoomLabel.css" />
       <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <!-- div to display map; add more for title and caption if desired -->
     <div id="map"></div>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Current Leaflet is beta. Check for updates at http://leafletjs.com/download.html -->
     <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet/v1.0.0-beta.2/leaflet.js"></script>
+    <!-- remove Zoom Label (also in script.js) after map contruction -->
+    <script type="text/javascript" src="http://jackdougherty.github.io/leaflet.zoomlabel/L.Control.ZoomLabel.js"></script>
     <script type="text/javascript" src="http://cdn.jsdelivr.net/leaflet.esri/2.0.0-beta.7/esri-leaflet.js"></script>
     <script type="text/javascript" src="script.js"></script>
   </body>
