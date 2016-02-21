@@ -28,6 +28,9 @@ var controlLayers = L.control.layers( null, null, {
   collapsed: false // false = open by default
 }).addTo(map);
 
+// REMOVE AFTER MAP CONSTRUCTION: optional Zoom Label (also in index.html)
+L.control.zoomLabel().addTo(map);
+
 // optional: reposition zoom control other than default topleft
 L.control.zoom({position: "topright"}).addTo(map);
 
@@ -36,21 +39,21 @@ var lightNoLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 }).addTo(map);
 
-// the ArcGIS layer looks best so far
+// ArcGIS Online tile layer, hosted on subscription service http://trincoll.maps.arcgis.com
 var arcGISLabels = L.esri.tiledMapLayer({
     url: "http://tiles.arcgis.com/tiles/5rblLCKLgS4Td60j/arcgis/rest/services/ConnecticutTownLabels/MapServer",
     pane: 'labels'
 }).addTo(map);
-controlLayers.addBaseLayer(arcGISLabels, 'ArcGIS Online Labels');
+controlLayers.addBaseLayer(arcGISLabels, 'ArcGIS Online Labels'); // replaced addOverlay with addBaseLayer for radio buttons
 
-// see use of "pane" in this only_labels layer
+// free CartoDB labels only layer, but insufficient detail
 var lightOnlyLabels = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
     pane: 'labels'
 });
 controlLayers.addBaseLayer(lightOnlyLabels, 'CartoDB Labels');
 
-// use pane in this mapbox labels layer
+// Mapbox
 var mapboxLabels = L.tileLayer('https://{s}.tiles.mapbox.com/v3/gmapsmania.f8637bc8/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
     pane: 'labels'
