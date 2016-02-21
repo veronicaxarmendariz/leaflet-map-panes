@@ -10,9 +10,13 @@ http://jackdougherty.github.io/leaflet-map-panes/
 
 ## Overview of steps:
 - Create ArcGIS map with town labels (hide boundaries from view)
-- Publish as Tile Layer on ArcGIS Online service (subscription) http://www.arcgis.com/home/item.html?id=31c6f4f4360f4ab7b330b129086216de
-- Use esri-leaflet to display labels as a base layer
-- See Leaflet custom map panes tutorial to display layers as z-levels http://leafletjs.com/examples/map-panes.html
+- Publish as Tile Layer on ArcGIS Online service (Trinity College subscription) http://www.arcgis.com/home/item.html?id=31c6f4f4360f4ab7b330b129086216de
+- Use esri-leaflet to display town labels tile layer
+- See Leaflet custom map panes tutorial to display layers at different z-levels http://leafletjs.com/examples/map-panes.html
+
+## Questions for MAGIC
+- Can your team create a better ArcGIS tile layer of town names? In my version, some towns display multiple labels (see Torrington and Winchester)
+- If yes, can MAGIC host this label-only tile layer on your server? I’m thinking it would be a better long-term public solution than Trinity’s ArcGIS Online account.
 
 ## Alternatives considered
 - Also tried free CartoDB light labels only layer, but insufficient detail
