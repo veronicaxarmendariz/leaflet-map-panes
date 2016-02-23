@@ -25,3 +25,4 @@ http://jackdougherty.github.io/leaflet-map-panes/
 ## To Do
 - Rebuild geojson data file for pop density
 - change from click to hover, and add legend to display colors and hover data
+- other minor changes
